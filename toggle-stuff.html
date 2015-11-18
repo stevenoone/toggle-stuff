@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Placeholder Pop</title>
+
+<link rel="stylesheet" href="placeholder-pop.css">
+
+<style type="text/css">
+
+/*Your own styles go here*/
+
+body {
+    margin: 10px 20px;
+    font-family: 'Helvetica Neue', Helvetica, Arial,sans-serif;
+    font-size: 16px;
+}
+
+.box {
+    width: 200px;
+    height: 100px;
+    margin-top: 10px;
+}
+
+#redbox {
+    background-color: darkred;
+}
+
+#bluebox {
+    background-color: deepskyblue;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<a href="#bluebox" class="toggleTarget"><span class="default">Show blue box</span><span class="switch">Hide blue box</span></a>
+
+<br>
+
+<div id="bluebox" class="box hide"></div>
+
+<br>
+
+<a href="#redbox" class="toggleTarget"><span class="default">Hide red box</span><span class="switch">Show red box</span></a>
+
+<br>
+
+<div id="redbox" class="box"></div>
+
+<script src="http://code.jquery.com/jquery.js"></script>
+
+<script type="text/javascript">
+$(".hide").hide();
+$(".toggleTarget .switch").hide();
+$('.toggleTarget').click(function() {
+    $(this).children( ".default" ).toggle();
+    $(this).children( ".switch" ).toggle();
+	theDiv = $(this).attr("href");
+    $(theDiv).fadeToggle('fast');
+	return false;
+});
+</script>
+
+</body>
+</html>

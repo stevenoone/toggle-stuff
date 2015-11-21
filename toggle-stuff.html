@@ -34,19 +34,19 @@ body {
 
 <body>
 
-<a href="#bluebox" class="toggleTarget"><span class="default">Show blue box</span><span class="switch">Hide blue box</span></a>
+<a href="#" data-target=".blue" class="toggleTarget"><span class="default">Show blue box</span><span class="switch">Hide blue box</span></a>
 
 <br>
 
-<div id="bluebox" class="box hide"></div>
+<div id="bluebox" class="box hide blue"></div>
 
 <br>
 
-<a href="#redbox" class="toggleTarget"><span class="default">Hide red box</span><span class="switch">Show red box</span></a>
+<a href="#" data-target=".red" class="toggleTarget"><span class="default">Hide red box</span><span class="switch">Show red box</span></a>
 
 <br>
 
-<div id="redbox" class="box"></div>
+<div id="redbox" class="box red"></div>
 
 <script src="http://code.jquery.com/jquery.js"></script>
 
@@ -56,7 +56,7 @@ $(".toggleTarget .switch").hide();
 $('.toggleTarget').click(function() {
     $(this).children( ".default" ).toggle();
     $(this).children( ".switch" ).toggle();
-	theDiv = $(this).attr("href");
+	theDiv = $(this).attr("data-target");
     $(theDiv).fadeToggle('fast');
 	return false;
 });
